@@ -1,104 +1,69 @@
 
-function generateAlbums()   
-{  
-   //array of images with image location, height, and width  
-   var imageArray = [  
-   {   
-    src: "./images/time.png", 
-     width: "500",  
-     height: "500"  
-   },   
-   {  
-     src: "./images/rising.jpg",  
-     width: "500",  
-     height: "500"  
-   },   
-   {  
-     src: "./images/worldjpg.jpg",  
-     width: "500",  
-     height: "500"  
-   },  
-   {  
-    src: "./images/kkb.jpg",  
-    width: "500",  
-    height: "500"  
-  },  
-  {  
-    src: "./images/1.jpg",  
-    width: "500",  
-    height: "500"  
-  },  
-  {  
-    src: "./images/2.jpg",  
-    width: "500",  
-    height: "500"  
-  },  
-  {  
-    src: "./images/3.jpg",  
-    width: "500",  
-    height: "500"  
-  },  
-  {  
-    src: "./images/4.jpg",  
-    width: "500",  
-    height: "500"  
-  },  
-  {  
-    src: "./images/5.jpg",  
-    width: "500",  
-    height: "500"  
-  },  
-  {  
-    src: "./images/6.jpg",  
-    width: "500",  
-    height: "500"  
-  },  
-  {  
-    src: "./images/7.jpg",  
-    width: "500",  
-    height: "500"  
-  },  
-  {  
-    src: "./images/8.jpg",  
-    width: "500",  
-    height: "500"  
-  },  
-   {  
-     src: "./images/deep.jpg", 
-     
-     width: "500",  
-     height: "500",
-    }
-    
-];  
-      
-    //find the length of the array of images  
-    var arrayLength = imageArray.length;  
-    var newArray = [];  
-    for (var i = 0; i < arrayLength; i++) {  
-        newArray[i] = new Image();  
-        newArray[i].src = imageArray[i].src;  
-        newArray[i].width = imageArray[i].width;  
-        newArray[i].height = imageArray[i].height;  
-    }  
-     
-  // create random image number  
-  function getRandomNum(min, max)   
-  {  
-      // generate and return a random number for the image to be displayed   
-      imgNo = Math.floor(Math.random() * (max - min + 1)) + min;  
-      return newArray[imgNo];  
-  }    
+image_array = [
+    '1.jpg',
+    '2.jpg',
+    '3.jpg',
+    '5.jpg',
+    '6.jpg',
+    '7.jpg',
+  'kkb.jpg',
+    'rising.jpg',
+    '7.jpg',
+    '17.jpg',
+    '18.jpg',
+    '19.jpg',
+    '20.jpg',
+    '21.jpg',
+    '22.jpg',
+    '23.jpg',
+    '24.jpg',
+    '25.jpg',
+    '26.jpg',
+    '27.jpg',
+    '28.jpg',
+    '29.jpg',
+    '30.jpg',
+    '31.jpg',
+    '32.jpg',
+    '33.jpg',
+    '34.jpg',
+    '35.jpg',
+    '36.jpg',
+    '37.jpg',
+    '38.jpg',
+    '39.jpg',
+    'deep.jpg',
+    '9.jpeg',
+    '10.jpeg',
+    '11.jpeg',
+    '12.jpeg',
+    '13.jpeg',
+    '14.jpeg',
+    '15.jpeg',
+    '16.jpeg',
+    '40.jpeg',
+    'worldjpg.jpg',
+    '4.jpg'
+  ]
   
-  // 0 is first image and (preBuffer.length - 1) is last image of the array  
-  var newImage = getRandomNum(0, newArray.length - 1);  
-   
-  // remove the previous images  
-  var images = document.getElementsByTagName('img');  
-  var l = images.length;  
-  for (var p = 0; p < l; p++) {  
-     images[0].parentNode.removeChild(images[0]);  
-  }  
-  // display the new random image    
-  document.body.appendChild(newImage);  
-}  
+  function get_random_image(){
+     random_index = Math.floor(Math.random() * image_array.length);
+    selected_image = image_array[random_index]
+  document.getElementById('image_shower').src = `./images/${selected_image}`
+  }
+  function alert1() {
+    alert("Tip: you can hit the shuffle button multiple times.");
+  }
+
+  function getVote(int) {
+    var xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function() {
+      if (this.readyState==4 && this.status==200) {
+        document.getElementById("survey").innerHTML=this.responseText;
+      }
+    }
+    xmlhttp.open("GET","poll_vote.php?vote="+int,true);
+    xmlhttp.send();
+  }
+
+  

@@ -7,17 +7,28 @@
     <title>What Should You Listen To?</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body onload="alert1()">
     <div class="a">
     <h1>What should you listen to?</h1>
-    <h2>Click below to find out!</h2>
-</div>
-<div>  
-    <center>  
-     
-    <button onclick="generateAlbums();"><img id="myImg" src="./images/shuf2.png" width="50"     height="50"></button>  
-    </center>   
-    
+    <h3>Click the shuffle button below to find out!</h3>
+   <center>
+    <div id="container">
+        <div id="inner_container">
+          <img id="image_shower"/>
+        </div>
+        <div id="button_container">
+          <button class=" button1" onclick="get_random_image()"> <i class="fas fa-random"></i> <img src=shuf2.png></button>
+        </div>
+      </div>
+      </center>
+      <div id="survey">
+        <h5>Find anything good on here?</h5>
+        <form>
+        Yes: <input type="radio" name="vote" value="0" onclick="getVote(this.value)"><br>
+        No: <input type="radio" name="vote" value="1" onclick="getVote(this.value)">
+        </form>
+        </div>
+        
 <script src="app.js"></script>
 </body>
 </html>
